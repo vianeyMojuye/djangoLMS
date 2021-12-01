@@ -1,6 +1,6 @@
 # pull the official base image
-FROM python:3.8.10
 FROM ubuntu
+FROM python:3.8.10
 
 #maintainer
 MAINTAINER Menlah toto@toto.com
@@ -16,7 +16,9 @@ WORKDIR /usr/src/app
 RUN rm -rf /usr/src/app/*
 
 #get project from git and store it into the work directory
-RUN git clone https://github.com/diranetafen/static-website-example.git /usr/src/app/
+RUN git clone https://github.com/vianeyMojuye/djangoLMS.git /usr/src/app/
+
+RUN ls /usr/src/app/
 
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -24,7 +26,7 @@ ENV PYTHONUNBUFFERED 1
 
 # install dependencies
 RUN pip install --upgrade pip 
-COPY ./requirements.txt /usr/src/app
+#COPY ./requirements.txt /usr/src/app
 RUN pip install -r requirements.txt
 
 # copy project
